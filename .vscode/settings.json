@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/ace8af71-ce9d-4c3d-a833-bbe84a5d9bda/resourceGroups/overonce_group/providers/Microsoft.Web/sites/overonce",
+    "appService.deploySubpath": "."
+}

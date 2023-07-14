@@ -9,4 +9,5 @@ import validateAuth from './authCases/validateAuth/validateAuth.js';
 routes.use('/users', validateAuth, signin, userRoute);
 routes.post('/signup', validateAuth, signup);
 routes.get('/token', getToken);
+routes.get('/', (req, res)=>{res.json({message: 'hello world'})});
 export default routes;
