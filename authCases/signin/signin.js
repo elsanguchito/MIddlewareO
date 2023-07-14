@@ -1,5 +1,9 @@
-const signin = async (req, res, next) =>{
+import encodeToken from "../encodeToken.js";
+
+const signin = async (req, res) =>{
     const supabase = req.supabase;
+    const secret = process.env.SECRET_PASSWORD;
+
     const {email, password } = req.body;
     try {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -7,10 +11,15 @@ const signin = async (req, res, next) =>{
             password: password
         });    
         if (error) {throw error;}
-        next();
+        const token = encodeToken({
+            "id": data.user.id,
+            "email": data.user.email
+        }, secret);
+        res.json({token});
+
     } catch (error) {
         console.error('Credenciales inválidas: ', error.message);
-        res.status(500).json({ error: 'Credenciales inválidas'});
+        res.status(500).json({ error: 'Credenciales inválidas', message: error.message});
     }
 
 }

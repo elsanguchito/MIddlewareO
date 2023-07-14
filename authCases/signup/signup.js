@@ -18,15 +18,18 @@ const signup = async (req, res) =>{
                 email: user.email
             }); 
             if (error) {throw error;}    
-            const token = encodeToken({userId: user.id}, secret);
+            const token = encodeToken({
+                id: user.id, 
+                email: user.email
+            }, secret);
             res.json({token});    
         } catch (error) {
             console.error('Error saving user: ', error.message);
-            res.status(500).json({ error: 'Error saving user' });
+            res.status(500).json({ error: 'Error saving user', message: error.message});
         }    
     } catch (error) {
         console.error('Error saving signUp: ', error.message);
-        res.status(500).json({ error: 'Error saving signUp' });
+        res.status(500).json({ error: 'Error saving signUp', message: error.message});
     }
     
 }

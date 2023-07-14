@@ -6,7 +6,8 @@ import signup from './authCases/signup/signup.js';
 import getToken from './authCases/getToken.js';
 import validateAuth from './authCases/validateAuth/validateAuth.js';
 
-routes.use('/users', validateAuth, signin, userRoute);
+// routes.use('/users', validateAuth, signin, userRoute);
+routes.post('/signin', validateAuth, signin);
 routes.post('/signup', validateAuth, signup);
 routes.get('/token', getToken);
 routes.get('/', (req, res)=>{res.json({message: 'hello world'})});

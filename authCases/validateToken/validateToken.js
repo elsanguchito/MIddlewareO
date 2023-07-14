@@ -11,7 +11,8 @@ const validateToken = (req, res, next) => {
 
     try {
     const decoded = decodeToken(token, secret);
-    req.user = decoded.user;
+    req.body = decoded;
+    console.log(req.body);
     next();
     } catch (error) {
     // En caso de que ocurra un error en la decodificación
