@@ -5,7 +5,7 @@ const signinGoogle = async (req, res) =>{
     const redirectUrl = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo: 'https://middleware-o.vercel.app/auth/google/callback/'
+            redirectTo: 'https://middlewareoveronce.vercel.app/'
         }
     });
     res.json({url: redirectUrl.data.url});
