@@ -50,9 +50,7 @@ const routes = express.Router();
 
 
 routes.get('/', (req, res)=>{
-    res.json({
-        doc: 'https://middlewareoveronce.vercel.app/api-docs'
-    })
+    res.redirect('/docs');
 });
 
 routes.use('/users', userRoute);

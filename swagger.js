@@ -1,5 +1,4 @@
 import swaggerJSDoc from "swagger-jsdoc";
-import swaggerUi from 'swagger-ui-express';
 
 const options = {
     definition: {
@@ -24,9 +23,4 @@ const options = {
 
 const specs = swaggerJSDoc(options);
 
-const swaggerDocs = (app, port) =>{
-    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {explorer: true}));
-    console.log(`Docs are available at https://middlewareoveronce.vercel.app/api-docs`);
-}
-
-export default swaggerDocs;
+export default specs;
