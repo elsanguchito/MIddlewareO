@@ -26,7 +26,7 @@ const specs = swaggerJSDoc(options);
 
 const swaggerDocs = (app, port) =>{
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {explorer: true}));
-    console.log(`Docs are available at http://localhost:${port}/api/v1/docs`);
+    console.log(`Docs are available at https://middlewareoveronce.vercel.app/api-docs`);
 }
 
 export default swaggerDocs;
