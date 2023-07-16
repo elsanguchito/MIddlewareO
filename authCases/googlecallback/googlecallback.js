@@ -11,7 +11,7 @@ if(error){
 console.log(req.query)
 console.log(session);
 
-res.json(session);
+res.json(req.query);
 
 }
 
