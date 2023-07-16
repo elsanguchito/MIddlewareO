@@ -4,9 +4,8 @@ import express from 'express';
 import cors from 'cors';
 import supabase from './database/supabase.js';
 import routes from './routes/routes.js';
-import specs from './swagger.js';
 import swaggerUi from 'swagger-ui-express';
-
+import specs from './swagger.js';
 const app = express();
 
 
