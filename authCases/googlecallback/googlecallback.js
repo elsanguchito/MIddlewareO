@@ -11,7 +11,12 @@ if(error){
 console.log(req.query)
 console.log(session);
 
-res.json(req.query);
+res.json({
+    query: req.query,
+    body: req.body,
+    params: req.params,
+    error: error
+});
 
 }
 
