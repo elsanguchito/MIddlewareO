@@ -1,21 +1,20 @@
 import supabase from "../../database/supabase.js";
 
 const googlecallback = async (req, res) =>{
-
-const {error, session} = await supabase.auth.getSession(req.query.access_token);
-
-if(error){
-    return res.status(500).json({error: error.message});
-}
-
-console.log(req.query)
-console.log(session);
+    const accessToken = req.originalUrl.split("#access_token=")[1];
+    const queryParams = new URLSearchParams(accessToken);
+    const accessTokenValue = queryParams.get("access_token");
+    const expiresIn = queryParams.get("expires_in");
+    const refreshToken = queryParams.get("refresh_token");
+    const providerToken = queryParams.get("provider_token");
 
 res.json({
-    query: req.query,
-    body: req.body,
-    params: req.params,
-    error: error
+    accessToken,
+    queryParams,
+    accessTokenValue,
+    expiresIn,
+    refreshToken,
+    providerToken
 });
 
 }
