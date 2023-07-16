@@ -4,6 +4,12 @@ import postUser from './postUser/postUser.js';
 
 const userRoute = express.Router();
 
+/**
+ * @swagger
+ * tags:
+ *   name: Users
+ *   description: The users managing API
+ */
 userRoute.use('/:user/profiles', userRoute);
 userRoute.get('/', getUsers);
 

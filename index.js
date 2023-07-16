@@ -2,8 +2,9 @@
 
 import express from 'express';
 import cors from 'cors';
+import V1SwaggerDocs from './swagger.js';
 import supabase from './database/supabase.js';
-import routes from './routes.js';
+import routes from './routes/routes.js';
 
 const app = express();
 
@@ -17,4 +18,5 @@ const PORT = 3000 || process.env.PORT;
 
 app.listen(PORT, ()=>{
     console.log(`running on port: ${PORT}`);
+    V1SwaggerDocs(app, PORT);
 })
