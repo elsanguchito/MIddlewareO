@@ -51,7 +51,7 @@ const routes = express.Router();
 
 routes.get('/', (req, res)=>{
     res.json({
-        doc: 'http://localhost:3000/api-docs/#/'
+        doc: 'https://middlewareoveronce.vercel.app/api-docs'
     })
 });
 
