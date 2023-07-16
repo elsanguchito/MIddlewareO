@@ -73,7 +73,7 @@ authRoute.post('/signinWithGoogle', signinGoogle);
  *       200:
  *          description: (devuelve datos de usuario)
  */
-authRoute.get('/google/callback/', googlecallback);
+authRoute.get('/google/callback/:access_token/:provider_token/:refresh_token/:token_type', googlecallback);
 
 /**
  * @swagger
