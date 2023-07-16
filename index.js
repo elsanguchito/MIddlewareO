@@ -13,9 +13,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const CSS_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 
-app.use('/docs', swaggerUi.serve);
-app.get('/docs', swaggerUi.setup(specs));
+app.use('/docs', 
+    swaggerUi.serve, 
+    swaggerUi.setup(specs, {customCssUrl: CSS_URL})
+);
 
 app.use ((req, res, next)=>{req.supabase = supabase; next();}, routes);
 app.use(routes);
